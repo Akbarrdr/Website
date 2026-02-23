@@ -1,4 +1,9 @@
 const suhuText = document.getElementById("suhu");
+const humidityText = document.getElementById("humidity");
+const teganganText = document.getElementById("tegangan");
+const bateraiText = document.getElementById("baterai");
+const pintuText = document.getElementById("pintu");
+
 const statusText = document.getElementById("status");
 const alertBox = document.getElementById("alertBox");
 const clockText = document.getElementById("clock");
@@ -9,6 +14,7 @@ let labels = [];
 let dataSuhu = [];
 let lastAlert = false;
 
+// 📊 Chart
 const chart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -32,7 +38,7 @@ const chart = new Chart(ctx, {
   }
 });
 
-// 🔥 JAM REALTIME
+// 🕒 Jam
 function updateClock(){
   const now = new Date();
   clockText.innerHTML = now.toLocaleString();
@@ -40,9 +46,10 @@ function updateClock(){
 setInterval(updateClock, 1000);
 updateClock();
 
-// 🔥 UPDATE SUHU DUMMY
-function updateData() {
+// 🔥 Update Semua Data
+function updateData(){
 
+  // 🌡️ Suhu
   let suhu = (Math.random() * 10 + 25).toFixed(1);
   suhuText.innerHTML = suhu + " °C";
 
@@ -62,7 +69,6 @@ function updateData() {
     statusText.innerHTML = "Bahaya!";
     statusText.style.color = "#ff4d4d";
 
-    // 🔔 NOTIFIKASI HANYA SEKALI SAAT MASUK BAHAYA
     if(!lastAlert){
       alertBox.innerHTML = "⚠️ WARNING! Suhu Melebihi Batas Aman!";
       alertBox.style.display = "block";
@@ -70,8 +76,31 @@ function updateData() {
     }
   }
 
-  let now = new Date().toLocaleTimeString();
+  // 💧 Kelembapan
+  let humidity = (Math.random() * 40 + 40).toFixed(0);
+  humidityText.innerHTML = humidity + " %";
 
+  // ⚡ Tegangan
+  let tegangan = (Math.random() * 10 + 215).toFixed(0);
+  teganganText.innerHTML = tegangan + " V";
+
+  // 🔋 Baterai
+  let baterai = (Math.random() * 50 + 50).toFixed(0);
+  bateraiText.innerHTML = baterai + " %";
+
+  if(baterai < 30){
+    bateraiText.style.color = "red";
+  } else {
+    bateraiText.style.color = "#00ff88";
+  }
+
+  // 🚪 Status Pintu
+  let pintu = Math.random() > 0.7 ? "Terbuka" : "Tertutup";
+  pintuText.innerHTML = pintu;
+  pintuText.style.color = pintu === "Terbuka" ? "#ff4d4d" : "#00ff88";
+
+  // 📊 Update Chart
+  let now = new Date().toLocaleTimeString();
   labels.push(now);
   dataSuhu.push(suhu);
 
@@ -84,6 +113,7 @@ function updateData() {
 }
 
 setInterval(updateData, 3000);
+updateData();
 
 function logout(){
   window.location.href = "index.html";
