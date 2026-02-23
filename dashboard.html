@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard Suhu</title>
+  <title>Dashboard Monitoring</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <div class="dashboard">
-  <h1>Monitoring Suhu ESP32</h1>
-  <h2 id="suhu">-- °C</h2>
+  <h1>ESP32 Temperature Monitor</h1>
+
+  <div class="card">
+    <h2 id="suhu">-- °C</h2>
+    <p id="status" class="status">Menunggu data...</p>
+  </div>
+
+  <canvas id="chart"></canvas>
+
   <button onclick="logout()">Logout</button>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
