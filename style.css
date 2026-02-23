@@ -1,31 +1,122 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
 body{
-  font-family: Arial;
-  background: #0f172a;
-  color: white;
+  height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  height:100vh;
+  background: radial-gradient(circle at top, #0f2027, #203a43, #0a0f1a);
 }
 
-.login-box, .dashboard{
-  background:#1e293b;
-  padding:40px;
-  border-radius:15px;
+.container{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.login-box{
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  padding:45px;
+  border-radius:25px;
+  width:340px;
   text-align:center;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.15);
+  border: 1px solid rgba(0,255,255,0.2);
+}
+
+.login-box h2{
+  color:#00f7ff;
+  margin-bottom:5px;
+  letter-spacing:1px;
+}
+
+.dashboard{
+  text-align:center;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  padding:30px;
+  border-radius:25px;
+  width:90%;
+  max-width:700px;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.15);
+  border: 1px solid rgba(0,255,255,0.2);
+  color:white;
+}
+
+.card{
+  background: rgba(255,255,255,0.08);
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:20px;
+}
+
+#suhu{
+  font-size:48px;
+  color:#00f7ff;
+}
+
+.status{
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.subtitle{
+  color:#ccc;
+  font-size:13px;
+  margin-bottom:30px;
+}
+
+.input-group{
+  margin-bottom:18px;
 }
 
 input{
-  display:block;
-  margin:10px auto;
-  padding:10px;
-  width:200px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:rgba(255,255,255,0.08);
+  color:white;
+  outline:none;
+  transition:0.3s;
+}
+
+input:focus{
+  box-shadow:0 0 10px #00f7ff;
 }
 
 button{
-  padding:10px 20px;
-  background:#22c55e;
+  width:100%;
+  padding:12px;
   border:none;
-  color:white;
+  border-radius:12px;
+  background: linear-gradient(90deg, #00f7ff, #00bcd4);
+  color:black;
+  font-weight:bold;
   cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform: scale(1.05);
+  box-shadow:0 0 15px #00f7ff;
+}
+
+.error-msg{
+  color:#ff4d4d;
+  font-size:14px;
+  margin-top:15px;
+}
+
+.version{
+  margin-top:20px;
+  font-size:12px;
+  color:#888;
 }
