@@ -3,13 +3,19 @@
 <head>
   <title>Dashboard Monitoring</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <div class="dashboard">
-  <h1>ESP32 Temperature Monitor</h1>
+
+  <div class="top-bar">
+    <h1>ESP32 Temperature Monitor</h1>
+    <div id="clock" class="clock"></div>
+  </div>
+
+  <div id="alertBox" class="alert-box"></div>
 
   <div class="card">
     <h2 id="suhu">-- °C</h2>
@@ -21,6 +27,6 @@
   <button onclick="logout()">Logout</button>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
